@@ -30,4 +30,13 @@ public abstract class Character {
      * list of characters items
      */
     private ArrayList<Item> itemList;
+
+    public Character(String name, String bio, int age, Double height, Double weight, ArrayList<Item> itemList) {
+        this.name = name;
+        this.bio = bio;
+        this.age = age;
+        this.height = height;
+        this.weight = weight;
+        this.itemList = itemList;
+    }
 }

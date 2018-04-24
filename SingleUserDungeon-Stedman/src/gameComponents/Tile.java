@@ -1,5 +1,5 @@
 package gameComponents;
-
+import java.util.ArrayList;
 /**
  * The tile component that will be used to build the map
  */
@@ -12,6 +12,7 @@ public class Tile {
     private Tile down;
     private TerrainInfo terrainInfo;
     private Coordinate coordinate;
+    private ArrayList<Item> itemList;
 
     public Tile(Tile north, Tile east, Tile south, Tile west, Tile up, Tile down, TerrainInfo terrainInfo, Coordinate coordinate) {
         this.north = north;
@@ -22,6 +23,7 @@ public class Tile {
         this.down = down;
         this.terrainInfo = terrainInfo;
         this.coordinate = coordinate;
+        this.itemList = new ArrayList<>();
     }
 
     public Tile(Tile north, Tile east, Tile south, Tile west, TerrainInfo terrainInfo) {
@@ -32,7 +34,9 @@ public class Tile {
         this.terrainInfo = terrainInfo;
         this.up = null;
         this.down = null;
+        this.itemList = new ArrayList<>();
     }
+
     public Tile(TerrainInfo terrainInfo) {
         this.north = null;
         this.east = null;
@@ -41,23 +45,7 @@ public class Tile {
         this.up = null;
         this.down = null;
         this.terrainInfo = terrainInfo;
-    }
-
-
-    public Tile getNorth() {
-        return north;
-    }
-
-    public Tile getEast() {
-        return east;
-    }
-
-    public Tile getSouth() {
-        return south;
-    }
-
-    public Tile getWest() {
-        return west;
+        this.itemList = new ArrayList<>();
     }
 
     public Tile getUp() {
@@ -70,22 +58,6 @@ public class Tile {
 
     public TerrainInfo getTerrainInfo() {
         return terrainInfo;
-    }
-
-    public void setNorth(Tile north) {
-        this.north = north;
-    }
-
-    public void setEast(Tile east) {
-        this.east = east;
-    }
-
-    public void setSouth(Tile south) {
-        this.south = south;
-    }
-
-    public void setWest(Tile west) {
-        this.west = west;
     }
 
     public void setUp(Tile up) {
@@ -102,6 +74,38 @@ public class Tile {
 
     public void setCoordinate(Coordinate coordinate) {
         this.coordinate = coordinate;
+    }
+
+    public Tile getNorth() {
+        return north;
+    }
+
+    public void setNorth(Tile north) {
+        this.north = north;
+    }
+
+    public Tile getEast() {
+        return east;
+    }
+
+    public void setEast(Tile east) {
+        this.east = east;
+    }
+
+    public Tile getSouth() {
+        return south;
+    }
+
+    public void setSouth(Tile south) {
+        this.south = south;
+    }
+
+    public Tile getWest() {
+        return west;
+    }
+
+    public void setWest(Tile west) {
+        this.west = west;
     }
 }
 
@@ -175,7 +179,7 @@ class TerrainInfo {
  */
 class Slope {
     /**
-     * Angle of the slope
+     * Angle of the slope in degrees
      */
     private Double angle;
     /**

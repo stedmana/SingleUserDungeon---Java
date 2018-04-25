@@ -9,4 +9,9 @@ public class Player extends Character {
         super(name, bio, age, height, weight, itemList);
         this.currentLocation = currentLocation;
     }
+
+    public Tile getCurrentLocation() {
+        return currentLocation;
+    }
+
 }

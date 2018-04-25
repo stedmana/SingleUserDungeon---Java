@@ -19,7 +19,7 @@ public class World1 {
     }
 
     private Map BuildSpawnRoom() {
-        return buildRandomSquareRoom(16);
+        return buildRandomSquareRoom(8);
     }
 
     private Map buildRandomSquareRoom(int n) {
@@ -52,24 +52,28 @@ public class World1 {
         int random = generateRandom(1,6);
         TerrainInfo.TerrainMaterial terrainMatIn;
         switch (random) {
-            case 1: terrainMatIn = TerrainInfo.TerrainMaterial.GRASS;
-            case 2: terrainMatIn = TerrainInfo.TerrainMaterial.DIRT;
-            case 3: terrainMatIn = TerrainInfo.TerrainMaterial.ROCKY;
-            case 4: terrainMatIn = TerrainInfo.TerrainMaterial.CONCRETE;
-            case 5: terrainMatIn = TerrainInfo.TerrainMaterial.WOOD;
-            case 6: terrainMatIn = TerrainInfo.TerrainMaterial.SLATE;
-            default: terrainMatIn = TerrainInfo.TerrainMaterial.GRASS;
+
+            case 1: terrainMatIn = TerrainInfo.TerrainMaterial.GRASS; break;
+            case 2: terrainMatIn = TerrainInfo.TerrainMaterial.DIRT;break;
+            case 3: terrainMatIn = TerrainInfo.TerrainMaterial.ROCKY;break;
+            case 4: terrainMatIn = TerrainInfo.TerrainMaterial.CONCRETE;break;
+            case 5: terrainMatIn = TerrainInfo.TerrainMaterial.WOOD;break;
+            case 6: terrainMatIn = TerrainInfo.TerrainMaterial.SLATE;break;
+            default: terrainMatIn = TerrainInfo.TerrainMaterial.GRASS; break;
+
         }
         //this is the generation of the the Terrain type
         random = generateRandom(1,5);
         TerrainInfo.TerrainType terrainTypeIn;
         switch (random) {
-            case 1: terrainTypeIn = TerrainInfo.TerrainType.FLAT;
-            case 2: terrainTypeIn = TerrainInfo.TerrainType.JAGGED;
-            case 3: terrainTypeIn = TerrainInfo.TerrainType.STAIRS;
-            case 4: terrainTypeIn = TerrainInfo.TerrainType.LADDER;
-            case 5: terrainTypeIn = TerrainInfo.TerrainType.WALL;
-            default: terrainTypeIn = TerrainInfo.TerrainType.FLAT;
+
+            case 1: terrainTypeIn = TerrainInfo.TerrainType.FLAT;break;
+            case 2: terrainTypeIn = TerrainInfo.TerrainType.JAGGED;break;
+            case 3: terrainTypeIn = TerrainInfo.TerrainType.STAIRS;break;
+            case 4: terrainTypeIn = TerrainInfo.TerrainType.LADDER;break;
+            case 5: terrainTypeIn = TerrainInfo.TerrainType.WALL;break;
+            default: terrainTypeIn = TerrainInfo.TerrainType.FLAT;break;
+
         }
 
         //This decides if the tile will be passable based on if it is a wall
@@ -129,4 +133,9 @@ public class World1 {
     private int generateRandom(int min, int max) {
         return ThreadLocalRandom.current().nextInt(min, max + 1); //+1 cause the upper bound is exclusive
     }
+
+    public Map getFirstMap() {
+        return this.listOfMaps.get(0);
+    }
+
 }

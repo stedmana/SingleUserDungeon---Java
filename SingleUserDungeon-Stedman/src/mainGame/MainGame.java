@@ -8,13 +8,10 @@ import java.util.Scanner;
 import gameComponents.*;
 
 public class MainGame {
+    private ArrayList<String> commandList;
+    private HashMap<String,String> commandInfoList;
+
     public static void main(String[] args) {
-        System.out.println("Hello world");
-        HashMap<String,Integer> test = new HashMap<>();
-        Integer t = test.get("he");
-        System.out.println(t);
-
-
         World1 firstTry = new World1();
         Player myPlayer = generatePlayer(firstTry.getFirstMap().getKeyTile("root"),new ArrayList<Item>());
         playGame(firstTry,myPlayer);
@@ -91,22 +88,209 @@ public class MainGame {
     }
 
     private static void playGame(World1 worldIn, Player playerIn) {
-        while (true) {
+        boolean loopControl = true;
+        while (loopControl) {
             //Code the repeatedly runs to run game occurs
 
             String scannedString = "";
             while (scannedString.equals("")) {
                 scannedString = getValueFromUser("Enter a command", "enter a valid command",".*");
             }
-            if (scannedString.equals("info")) {
-                printTileInfo(playerIn.getCurrentLocation());
-            }
-            else if (scannedString.equals("stop")) break;
-            else {
-                System.out.println("Enter a command...");
+
+            switch (scannedString) {
+                case "info": printTileInfo(playerIn.getCurrentLocation()); break;
+                case "stop": loopControl = false; break;
+                case "start":
+                    playerIn.setCurrentLocation(worldIn.getFirstMap().getKeyTile("root"));
+                    break;
+                case "help":
+                    System.out.println(commandList(NameOrInfo.NAME));
+                    break;
+                case "moreHelp":
+                    System.out.println(commandList(NameOrInfo.INFO));
+                    break;
+                case "playerInfo":
+                    System.out.println("Player name is: " + playerIn.getName());
+                    System.out.println("Player Bio is: " + playerIn.getBio());
+                    System.out.println("Player age is: "+ playerIn.getAge() + " years");
+                    System.out.println("Player height is: " + playerIn.getHeight() + " cm");
+                    System.out.println("Player weight is: " + playerIn.getWeight() + " kg");
+                    break;
+                case "north":
+                    if (movePlayer(Direction.NORTH, playerIn, worldIn)) {
+                        System.out.println("You have moved one tile north.");
+                    } else {
+                        System.out.println("Location invalid, please look somewhere else");
+                    }
+                    break;
+                case "east":
+                    if (movePlayer(Direction.EAST,playerIn,worldIn)) {
+                        System.out.println("You moved one tile east.");
+                    } else {
+                        System.out.println("Location invalid, please look somewhere else");
+                    }
+                    break;
+                case "south":
+                    if (movePlayer(Direction.SOUTH,playerIn,worldIn)) {
+                        System.out.println("You moved one tile south.");
+                    } else {
+                        System.out.println("Location invalid, please look somewhere else");
+                    }
+                    break;
+                case "west":
+                    if (movePlayer(Direction.WEST,playerIn,worldIn)) {
+                        System.out.println("You moved one tile west.");
+                    } else {
+                        System.out.println("Location invalid, please look somewhere else");
+                    }
+                    break;
+                default: System.out.println("Enter a valid command..."); break;
             }
         }
     }
+
+    /**
+     * Creates the list of commands using to print
+     */
+    private static String commandList(NameOrInfo option) {
+        ArrayList<String> stringList = new ArrayList<>();
+        HashMap<String,String> infoMap = new HashMap<>();
+
+        String command = "info";
+        String commandWriteup = "Prints the information about the current tile.";
+        addCommand(stringList,infoMap,command,commandWriteup);
+
+        command = "help";
+        commandWriteup = "Displays all of the commands available";
+        addCommand(stringList,infoMap,command,commandWriteup);
+
+        command = "moreHelp";
+        commandWriteup = "Displays all commands available, with command info";
+        addCommand(stringList,infoMap,command,commandWriteup);
+
+        command = "stop";
+        commandWriteup = "Stops the game.";
+        addCommand(stringList,infoMap,command,commandWriteup);
+
+        command = "start";
+        commandWriteup = "Starts the game, placing the player at the root of the map.";
+        addCommand(stringList,infoMap,command,commandWriteup);
+
+        command = "north";
+        commandWriteup = "Moves the player north one tile.";
+        addCommand(stringList,infoMap,command,commandWriteup);
+
+        command = "east";
+        commandWriteup = "Move the player east one tile.";
+        addCommand(stringList,infoMap,command,commandWriteup);
+
+        command = "south";
+        commandWriteup = "Move the player south one tile.";
+        addCommand(stringList,infoMap,command,commandWriteup);
+
+        command = "west";
+        commandWriteup = "Move the player west one tile.";
+        addCommand(stringList,infoMap,command,commandWriteup);
+
+
+        switch (option) {
+            case NAME:
+                //String toPrint = "";
+                StringBuilder toPrint = new StringBuilder();
+                toPrint.append("List of commands: \n");
+                for (String s:stringList) {
+                    toPrint.append(s);
+                    toPrint.append(", ");
+                }
+                toPrint.deleteCharAt(toPrint.lastIndexOf(" "));
+                toPrint.deleteCharAt(toPrint.lastIndexOf(","));
+                return toPrint.toString();
+            case INFO:
+                StringBuilder infoPrint = new StringBuilder();
+                infoPrint.append("List of commands with info: \n");
+                for (String s:stringList) {
+                    infoPrint.append(s);
+                    infoPrint.append(": ");
+                    infoPrint.append(infoMap.get(s));
+                    infoPrint.append("\n");
+                }
+                return infoPrint.toString();
+        }
+        return "";
+
+    }
+
+    /**
+     * Used to control if the method commandList(option) returns just the name, or the name with its info
+     */
+    enum NameOrInfo {
+        NAME, INFO
+    }
+
+
+    private static void addCommand(ArrayList<String> commandList, HashMap<String,String> commandInfoList, String command, String commandInfo) {
+        commandList.add(command);
+        commandInfoList.put(command,commandInfo);
+    }
+
+    //TODO: fix code to move player
+    /**
+     * moves the player to the new location if valid, if player removed it returns true, else false
+     * @param dirIn the direction the player wants to move in
+     * @param toMove the player which will be moved
+     * @param worldIn the world the player is in and will get moved within
+     * @return true if the player has been moved
+     */
+    private static boolean movePlayer(Direction dirIn, Player toMove, World1 worldIn) {
+        boolean toReturn = false;
+        Map myMap = worldIn.getFirstMap();
+        HashMap<Coordinate,Tile> keyMap = myMap.getTileMap();
+        Coordinate currentCoords = toMove.getCurrentLocation().getCoordinate();
+        switch (dirIn) {
+            case NORTH:
+                Coordinate northCoord = new Coordinate(currentCoords.getX(),currentCoords.getY()+1);
+                toReturn = isValidMove(keyMap,northCoord);
+                if (toReturn) toMove.setCurrentLocation(keyMap.get(northCoord));
+                break;
+            case EAST:
+                Coordinate eastCoord = new Coordinate(currentCoords.getX()+1,currentCoords.getY());
+                toReturn = isValidMove(keyMap,eastCoord);
+                if (toReturn) toMove.setCurrentLocation(keyMap.get(eastCoord));
+                break;
+            case SOUTH:
+                Coordinate southCoord = new Coordinate(currentCoords.getX(),currentCoords.getY()-1);
+                toReturn = isValidMove(keyMap,southCoord);
+                if (toReturn) toMove.setCurrentLocation(keyMap.get(southCoord));
+                break;
+            case WEST:
+                Coordinate westCoord = new Coordinate(currentCoords.getX()-1,currentCoords.getY());
+                toReturn = isValidMove(keyMap,westCoord);
+                if (toReturn) toMove.setCurrentLocation(keyMap.get(westCoord));
+                break;
+        }
+        return toReturn;
+    }
+
+    /**
+     * Checks if a move is valid, returns true if it is
+     * Essentially checks if the tile exists, or if it is a wall at this point
+     * @param tileHashMap the map in which the coordinate is checked
+     * @param newLocation the new loaction which the player wants to move to
+     * @return true if the move is valid
+     */
+    private static boolean isValidMove(HashMap<Coordinate,Tile> tileHashMap, Coordinate newLocation) {
+        Tile moveTo = tileHashMap.get(newLocation);
+        if (moveTo == null) return false;
+        else if (moveTo.getTerrainInfo().getType() == TerrainInfo.TerrainType.WALL) return false;
+
+        return true;
+    }
+
+
+    /**
+     * Prints information on the input tile
+     * @param workingTile the tile which one wants to print information about
+     */
     private static void printTileInfo(Tile workingTile) {
         String toPrint = "";
 
@@ -122,7 +306,7 @@ public class MainGame {
                     toPrint = toPrint + "These stairs appear to be ";
                     break;
                 case LADDER:
-                    toPrint = toPrint + "There is a ladder here that appears to on ground ";
+                    toPrint = toPrint + "There is a ladder here that appears to be on ground ";
                     break;
                 case WALL:
                     toPrint = toPrint + "There is a Wall here, on ground ";

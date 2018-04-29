@@ -30,7 +30,7 @@ public class Coordinate {
 
     @Override
     public int hashCode() {
-        return Objects.hash(x, y);
+        return this.x + 31*this.y;
     }
 
     public int getX() {

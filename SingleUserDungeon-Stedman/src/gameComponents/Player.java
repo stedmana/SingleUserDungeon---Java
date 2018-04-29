@@ -14,4 +14,7 @@ public class Player extends Character {
         return currentLocation;
     }
 
+    public void setCurrentLocation(Tile currentLocation) {
+        this.currentLocation = currentLocation;
+    }
 }

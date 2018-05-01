@@ -6,7 +6,7 @@ import java.util.HashMap;
 public class Map {
     private String name;
     private Tile root;
-    private HashMap<Coordinate,Tile> tileMap;
+    private HashMap<String,Tile> tileMap;
     private HashMap<String,Tile> keyTiles;
 
     public Map(Tile root) {
@@ -18,20 +18,34 @@ public class Map {
         this.root = root;
         this.tileMap = new HashMap<>();
         Coordinate tempRoot = new Coordinate(0,0);
-        this.tileMap.put(tempRoot, this.root);
+
+        this.tileMap.put(tempRoot.toString(), this.root);
         this.root.setCoordinate(tempRoot);
         this.keyTiles = new HashMap<>();
         this.keyTiles.put("root",this.root);
+        this.keyTiles.put("Root",this.root);
     }
 
     public void addTile(Tile toAdd, Coordinate addLocation) {
         toAdd.setCoordinate(addLocation);
-        this.tileMap.put(addLocation,toAdd);
+        String addLocString = addLocation.getX() + "," + addLocation.getY();
+        this.tileMap.put(addLocString,toAdd);
     }
 
     public void addKeyTile(Tile toAdd, Coordinate addLocation, String keyTileString) {
         addTile(toAdd,addLocation);
         this.keyTiles.put(keyTileString,toAdd);
+    }
+
+    public Tile getRoot(){
+        return this.root;
+    }
+
+    public void setRoot(Tile newRoot) {
+        this.keyTiles.put("root",newRoot);
+        this.keyTiles.put("Root",newRoot);
+        this.root = newRoot;
+        this.tileMap.put("0,0",newRoot);
     }
 
     /**
@@ -154,7 +168,7 @@ public class Map {
         return this.keyTiles.get(keyString);
     }
 
-    public HashMap<Coordinate, Tile> getTileMap() {
+    public HashMap<String, Tile> getTileMap() {
         return tileMap;
     }
 }

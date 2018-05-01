@@ -19,7 +19,7 @@ public class World1 {
     }
 
     private Map BuildSpawnRoom() {
-        return buildRandomSquareRoom(8);
+        return buildRandomSquareRoom(1);
     }
 
     private Map buildRandomSquareRoom(int n) {
@@ -130,7 +130,7 @@ public class World1 {
      * @param max maximum value of random gen (inclusive)
      * @return
      */
-    private int generateRandom(int min, int max) {
+    public int generateRandom(int min, int max) {
         return ThreadLocalRandom.current().nextInt(min, max + 1); //+1 cause the upper bound is exclusive
     }
 

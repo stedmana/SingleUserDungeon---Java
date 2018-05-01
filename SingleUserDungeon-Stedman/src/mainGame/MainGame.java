@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 import gameComponents.*;
 
@@ -13,10 +14,27 @@ public class MainGame {
 
     public static void main(String[] args) {
         World1 firstTry = new World1();
-        Player myPlayer = generatePlayer(firstTry.getFirstMap().getKeyTile("root"),new ArrayList<Item>());
+        println("Do you want to create your own player? Y/N");
+        Scanner scan = new Scanner(System.in);
+        String genPlayer = scan.next();
+        Player myPlayer;
+        if (genPlayer.equals("Y") || genPlayer.equals("y")) {
+            myPlayer = generatePlayer(firstTry.getFirstMap().getRoot(),new ArrayList<>());
+        } else {
+            myPlayer = generateRandomPlayer();
+            myPlayer.setCurrentLocation(firstTry.getFirstMap().getRoot());
+        }
+
         playGame(firstTry,myPlayer);
 
     }
+
+    /**
+     * Generates a player based on user inputs
+     * @param startingTile
+     * @param itemListIn
+     * @return
+     */
     private static Player generatePlayer(Tile startingTile, ArrayList<Item> itemListIn) {
         String playerName = "";
         while (playerName.equals("")) {
@@ -45,6 +63,42 @@ public class MainGame {
 
         return new Player(playerName,playerBio,playerAge,playerHeight,playerWeight, itemListIn, startingTile);
 
+    }
+
+    private static Player generateRandomPlayer() {
+        ArrayList<String> nameList = new ArrayList<>();
+        nameList.add("Jeff");
+        nameList.add("Leeroy");
+        nameList.add("Dan");
+        nameList.add("Phillip");
+        nameList.add("Thor");
+        nameList.add("Loki");
+
+        nameList.add("Jennifer");
+        nameList.add("Paige");
+        nameList.add("Lisa");
+        nameList.add("Blair");
+        nameList.add("Pamela");
+        nameList.add("Marion");
+
+        String name = nameList.get(ThreadLocalRandom.current().nextInt(0,nameList.size()));
+
+        ArrayList<String> bioList = new ArrayList<>();
+        bioList.add("Stronger than steel, hotter than jetfuel.");
+        bioList.add("The strongest Avenger");
+        bioList.add("Meaner than a really mean person, but smells kinda good");
+        bioList.add("Tasty and Tenacious");
+        String bio = bioList.get(ThreadLocalRandom.current().nextInt(0,bioList.size()));
+
+        int age = ThreadLocalRandom.current().nextInt(5,99);
+
+        Double height = ThreadLocalRandom.current().nextDouble(100.0,250.0);
+
+        Double weight = ThreadLocalRandom.current().nextDouble(25.0, 200.0);
+
+
+
+        return new Player(name,bio,age,height,weight);
     }
 
     private static String getValueFromUser(String preMessage, String errorMessage, String regexPattern) {
@@ -99,6 +153,8 @@ public class MainGame {
 
             switch (scannedString) {
                 case "info": printTileInfo(playerIn.getCurrentLocation()); break;
+                case "exit":
+                case "et":
                 case "stop": loopControl = false; break;
                 case "start":
                     playerIn.setCurrentLocation(worldIn.getFirstMap().getKeyTile("root"));
@@ -116,6 +172,7 @@ public class MainGame {
                     System.out.println("Player height is: " + playerIn.getHeight() + " cm");
                     System.out.println("Player weight is: " + playerIn.getWeight() + " kg");
                     break;
+                case "n":
                 case "north":
                     if (movePlayer(Direction.NORTH, playerIn, worldIn)) {
                         System.out.println("You have moved one tile north.");
@@ -123,6 +180,7 @@ public class MainGame {
                         System.out.println("Location invalid, please look somewhere else");
                     }
                     break;
+                case "e":
                 case "east":
                     if (movePlayer(Direction.EAST,playerIn,worldIn)) {
                         System.out.println("You moved one tile east.");
@@ -130,6 +188,7 @@ public class MainGame {
                         System.out.println("Location invalid, please look somewhere else");
                     }
                     break;
+                case "s":
                 case "south":
                     if (movePlayer(Direction.SOUTH,playerIn,worldIn)) {
                         System.out.println("You moved one tile south.");
@@ -137,6 +196,7 @@ public class MainGame {
                         System.out.println("Location invalid, please look somewhere else");
                     }
                     break;
+                case "w":
                 case "west":
                     if (movePlayer(Direction.WEST,playerIn,worldIn)) {
                         System.out.println("You moved one tile west.");
@@ -244,28 +304,28 @@ public class MainGame {
     private static boolean movePlayer(Direction dirIn, Player toMove, World1 worldIn) {
         boolean toReturn = false;
         Map myMap = worldIn.getFirstMap();
-        HashMap<Coordinate,Tile> keyMap = myMap.getTileMap();
+        HashMap<String,Tile> keyMap = myMap.getTileMap();
         Coordinate currentCoords = toMove.getCurrentLocation().getCoordinate();
         switch (dirIn) {
             case NORTH:
                 Coordinate northCoord = new Coordinate(currentCoords.getX(),currentCoords.getY()+1);
                 toReturn = isValidMove(keyMap,northCoord);
-                if (toReturn) toMove.setCurrentLocation(keyMap.get(northCoord));
+                if (toReturn) toMove.setCurrentLocation(keyMap.get(northCoord.toString()));
                 break;
             case EAST:
                 Coordinate eastCoord = new Coordinate(currentCoords.getX()+1,currentCoords.getY());
                 toReturn = isValidMove(keyMap,eastCoord);
-                if (toReturn) toMove.setCurrentLocation(keyMap.get(eastCoord));
+                if (toReturn) toMove.setCurrentLocation(keyMap.get(eastCoord.toString()));
                 break;
             case SOUTH:
                 Coordinate southCoord = new Coordinate(currentCoords.getX(),currentCoords.getY()-1);
                 toReturn = isValidMove(keyMap,southCoord);
-                if (toReturn) toMove.setCurrentLocation(keyMap.get(southCoord));
+                if (toReturn) toMove.setCurrentLocation(keyMap.get(southCoord.toString()));
                 break;
             case WEST:
                 Coordinate westCoord = new Coordinate(currentCoords.getX()-1,currentCoords.getY());
                 toReturn = isValidMove(keyMap,westCoord);
-                if (toReturn) toMove.setCurrentLocation(keyMap.get(westCoord));
+                if (toReturn) toMove.setCurrentLocation(keyMap.get(westCoord.toString()));
                 break;
         }
         return toReturn;
@@ -278,8 +338,8 @@ public class MainGame {
      * @param newLocation the new loaction which the player wants to move to
      * @return true if the move is valid
      */
-    private static boolean isValidMove(HashMap<Coordinate,Tile> tileHashMap, Coordinate newLocation) {
-        Tile moveTo = tileHashMap.get(newLocation);
+    private static boolean isValidMove(HashMap<String,Tile> tileHashMap, Coordinate newLocation) {
+        Tile moveTo = tileHashMap.get(newLocation.toString());
         if (moveTo == null) return false;
         else if (moveTo.getTerrainInfo().getType() == TerrainInfo.TerrainType.WALL) return false;
 
@@ -359,4 +419,7 @@ public class MainGame {
         System.out.println(toPrint);
     }
 
+    private static void println(String in) {
+        System.out.println(in);
+    }
 }

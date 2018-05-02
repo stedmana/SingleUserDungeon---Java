@@ -43,7 +43,7 @@ public class MainGame {
 
         String playerBio = "";
         while (playerBio.equals("")) {
-            playerBio = getValueFromUser("Please import a bio for your character", "Invalid input. Try again.", ".*");
+            playerBio = getLineFromUser("Please import a bio for your character", "Invalid input. Try again.");
         }
 
         int playerAge = -1;
@@ -101,6 +101,18 @@ public class MainGame {
         return new Player(name,bio,age,height,weight);
     }
 
+    private static String getLineFromUser(String preMessage, String errorMessage) {
+        System.out.println(preMessage);
+        String returnString = "";
+        try {
+            Scanner myScan = new Scanner(System.in);
+            returnString = myScan.nextLine();
+        } catch (Exception e) {
+            System.out.println(errorMessage);
+        }
+        return returnString;
+    }
+
     private static String getValueFromUser(String preMessage, String errorMessage, String regexPattern) {
         System.out.println(preMessage);
         String returnString = "";
@@ -152,6 +164,7 @@ public class MainGame {
             }
 
             switch (scannedString) {
+                case "i":
                 case "info": printTileInfo(playerIn.getCurrentLocation()); break;
                 case "exit":
                 case "et":

@@ -61,19 +61,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainGame.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/mainGame/MainGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+            <state relative-caret-position="-141">
+              <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#main#0;class#MainGame#0" expanded="false" />
                 <element signature="docComment;method#generatePlayer#0;class#MainGame#0" expanded="false" />
                 <element signature="method#generatePlayer#0;class#MainGame#0" expanded="false" />
                 <element signature="method#generateRandomPlayer#0;class#MainGame#0" expanded="false" />
+                <element signature="method#getLineFromUser#0;class#MainGame#0" expanded="false" />
                 <element signature="method#getValueFromUser#0;class#MainGame#0" expanded="false" />
-                <element signature="method#playGame#0;class#MainGame#0" expanded="false" />
+                <element signature="method#getNextIntFromUser#0;class#MainGame#0" expanded="false" />
+                <element signature="method#getNextDoubleFromUser#0;class#MainGame#0" expanded="false" />
                 <element signature="docComment;method#commandList#0;class#MainGame#0" expanded="false" />
                 <element signature="method#commandList#0;class#MainGame#0" expanded="false" />
                 <element signature="docComment;class#NameOrInfo#0;class#MainGame#0" expanded="false" />
@@ -83,8 +85,8 @@
                 <element signature="method#isValidMove#0;class#MainGame#0" expanded="false" />
                 <element signature="docComment;method#printTileInfo#0;class#MainGame#0" expanded="false" />
                 <element signature="method#printTileInfo#0;class#MainGame#0" expanded="false" />
-                <element signature="e#16502#16503#0" expanded="true" />
-                <element signature="e#16540#16541#0" expanded="true" />
+                <element signature="e#16916#16917#0" expanded="true" />
+                <element signature="e#16954#16955#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -179,18 +181,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="World1.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="World1.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gameComponents/World1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1296">
-              <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+            <state relative-caret-position="357">
+              <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#419#420#0" expanded="true" />
                 <element signature="e#452#453#0" expanded="true" />
                 <element signature="e#488#489#0" expanded="true" />
-                <element signature="e#535#536#0" expanded="true" />
-                <element signature="e#4703#4704#0" expanded="true" />
+                <element signature="e#537#538#0" expanded="true" />
+                <element signature="e#4660#4661#0" expanded="true" />
+                <element signature="e#4705#4706#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -257,9 +260,9 @@
         <option value="$PROJECT_DIR$/src/gameComponents/Tile.java" />
         <option value="$PROJECT_DIR$/src/gameComponents/Character.java" />
         <option value="$PROJECT_DIR$/src/gameComponents/Player.java" />
-        <option value="$PROJECT_DIR$/src/gameComponents/World1.java" />
         <option value="$PROJECT_DIR$/src/gameComponents/Coordinate.java" />
         <option value="$PROJECT_DIR$/src/gameComponents/Map.java" />
+        <option value="$PROJECT_DIR$/src/gameComponents/World1.java" />
         <option value="$PROJECT_DIR$/src/mainGame/MainGame.java" />
       </list>
     </option>
@@ -506,12 +509,12 @@
       <workItem from="1524403584931" duration="11915000" />
       <workItem from="1524609929570" duration="5976000" />
       <workItem from="1524757469120" duration="9981000" />
-      <workItem from="1524960506287" duration="4221000" />
+      <workItem from="1524960506287" duration="4832000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44090000" />
+    <option name="totallyTimeSpent" value="44701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="878" extended-state="0" />
@@ -526,7 +529,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32754344" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32754344" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -564,14 +567,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/mainGame/MainGame.java</url>
-          <line>176</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
@@ -624,12 +619,12 @@
             <element signature="docComment;field#lowerSide#0;class#Slope#0" expanded="false" />
             <element signature="docComment;method#Slope#0;class#Slope#0" expanded="false" />
             <element signature="docComment;method#Slope#1;class#Slope#0" expanded="false" />
-            <element signature="e#984#985#0" expanded="true" />
-            <element signature="e#1012#1013#0" expanded="true" />
-            <element signature="e#1051#1052#0" expanded="true" />
-            <element signature="e#1083#1084#0" expanded="true" />
-            <element signature="e#1122#1123#0" expanded="true" />
-            <element signature="e#1154#1155#0" expanded="true" />
+            <element signature="e#984#985#0" expanded="false" />
+            <element signature="e#1012#1013#0" expanded="false" />
+            <element signature="e#1051#1052#0" expanded="false" />
+            <element signature="e#1083#1084#0" expanded="false" />
+            <element signature="e#1122#1123#0" expanded="false" />
+            <element signature="e#1154#1155#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -658,8 +653,9 @@
             <element signature="e#419#420#0" expanded="true" />
             <element signature="e#452#453#0" expanded="true" />
             <element signature="e#488#489#0" expanded="true" />
-            <element signature="e#535#536#0" expanded="true" />
-            <element signature="e#4703#4704#0" expanded="true" />
+            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#4660#4661#0" expanded="true" />
+            <element signature="e#4705#4706#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -674,8 +670,10 @@
             <element signature="docComment;method#generatePlayer#0;class#MainGame#0" expanded="false" />
             <element signature="method#generatePlayer#0;class#MainGame#0" expanded="false" />
             <element signature="method#generateRandomPlayer#0;class#MainGame#0" expanded="false" />
+            <element signature="method#getLineFromUser#0;class#MainGame#0" expanded="false" />
             <element signature="method#getValueFromUser#0;class#MainGame#0" expanded="false" />
-            <element signature="method#playGame#0;class#MainGame#0" expanded="false" />
+            <element signature="method#getNextIntFromUser#0;class#MainGame#0" expanded="false" />
+            <element signature="method#getNextDoubleFromUser#0;class#MainGame#0" expanded="false" />
             <element signature="docComment;method#commandList#0;class#MainGame#0" expanded="false" />
             <element signature="method#commandList#0;class#MainGame#0" expanded="false" />
             <element signature="docComment;class#NameOrInfo#0;class#MainGame#0" expanded="false" />
@@ -685,8 +683,8 @@
             <element signature="method#isValidMove#0;class#MainGame#0" expanded="false" />
             <element signature="docComment;method#printTileInfo#0;class#MainGame#0" expanded="false" />
             <element signature="method#printTileInfo#0;class#MainGame#0" expanded="false" />
-            <element signature="e#16502#16503#0" expanded="true" />
-            <element signature="e#16540#16541#0" expanded="true" />
+            <element signature="e#16916#16917#0" expanded="true" />
+            <element signature="e#16954#16955#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -729,8 +727,9 @@
             <element signature="e#419#420#0" expanded="true" />
             <element signature="e#452#453#0" expanded="true" />
             <element signature="e#488#489#0" expanded="true" />
-            <element signature="e#535#536#0" expanded="true" />
-            <element signature="e#4703#4704#0" expanded="true" />
+            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#4660#4661#0" expanded="true" />
+            <element signature="e#4705#4706#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -767,8 +766,10 @@
             <element signature="docComment;method#generatePlayer#0;class#MainGame#0" expanded="false" />
             <element signature="method#generatePlayer#0;class#MainGame#0" expanded="false" />
             <element signature="method#generateRandomPlayer#0;class#MainGame#0" expanded="false" />
+            <element signature="method#getLineFromUser#0;class#MainGame#0" expanded="false" />
             <element signature="method#getValueFromUser#0;class#MainGame#0" expanded="false" />
-            <element signature="method#playGame#0;class#MainGame#0" expanded="false" />
+            <element signature="method#getNextIntFromUser#0;class#MainGame#0" expanded="false" />
+            <element signature="method#getNextDoubleFromUser#0;class#MainGame#0" expanded="false" />
             <element signature="docComment;method#commandList#0;class#MainGame#0" expanded="false" />
             <element signature="method#commandList#0;class#MainGame#0" expanded="false" />
             <element signature="docComment;class#NameOrInfo#0;class#MainGame#0" expanded="false" />
@@ -778,8 +779,8 @@
             <element signature="method#isValidMove#0;class#MainGame#0" expanded="false" />
             <element signature="docComment;method#printTileInfo#0;class#MainGame#0" expanded="false" />
             <element signature="method#printTileInfo#0;class#MainGame#0" expanded="false" />
-            <element signature="e#16502#16503#0" expanded="true" />
-            <element signature="e#16540#16541#0" expanded="true" />
+            <element signature="e#16916#16917#0" expanded="true" />
+            <element signature="e#16954#16955#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -807,8 +808,9 @@
             <element signature="e#419#420#0" expanded="true" />
             <element signature="e#452#453#0" expanded="true" />
             <element signature="e#488#489#0" expanded="true" />
-            <element signature="e#535#536#0" expanded="true" />
-            <element signature="e#4703#4704#0" expanded="true" />
+            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#4660#4661#0" expanded="true" />
+            <element signature="e#4705#4706#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1032,12 +1034,12 @@
             <element signature="docComment;field#lowerSide#0;class#Slope#0" expanded="false" />
             <element signature="docComment;method#Slope#0;class#Slope#0" expanded="false" />
             <element signature="docComment;method#Slope#1;class#Slope#0" expanded="false" />
-            <element signature="e#984#985#0" expanded="true" />
-            <element signature="e#1012#1013#0" expanded="true" />
-            <element signature="e#1051#1052#0" expanded="true" />
-            <element signature="e#1083#1084#0" expanded="true" />
-            <element signature="e#1122#1123#0" expanded="true" />
-            <element signature="e#1154#1155#0" expanded="true" />
+            <element signature="e#984#985#0" expanded="false" />
+            <element signature="e#1012#1013#0" expanded="false" />
+            <element signature="e#1051#1052#0" expanded="false" />
+            <element signature="e#1083#1084#0" expanded="false" />
+            <element signature="e#1122#1123#0" expanded="false" />
+            <element signature="e#1154#1155#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1051,33 +1053,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mainGame/MainGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#MainGame#0" expanded="false" />
-            <element signature="docComment;method#generatePlayer#0;class#MainGame#0" expanded="false" />
-            <element signature="method#generatePlayer#0;class#MainGame#0" expanded="false" />
-            <element signature="method#generateRandomPlayer#0;class#MainGame#0" expanded="false" />
-            <element signature="method#getValueFromUser#0;class#MainGame#0" expanded="false" />
-            <element signature="method#playGame#0;class#MainGame#0" expanded="false" />
-            <element signature="docComment;method#commandList#0;class#MainGame#0" expanded="false" />
-            <element signature="method#commandList#0;class#MainGame#0" expanded="false" />
-            <element signature="docComment;class#NameOrInfo#0;class#MainGame#0" expanded="false" />
-            <element signature="docComment;method#movePlayer#0;class#MainGame#0" expanded="false" />
-            <element signature="method#movePlayer#0;class#MainGame#0" expanded="false" />
-            <element signature="docComment;method#isValidMove#0;class#MainGame#0" expanded="false" />
-            <element signature="method#isValidMove#0;class#MainGame#0" expanded="false" />
-            <element signature="docComment;method#printTileInfo#0;class#MainGame#0" expanded="false" />
-            <element signature="method#printTileInfo#0;class#MainGame#0" expanded="false" />
-            <element signature="e#16502#16503#0" expanded="true" />
-            <element signature="e#16540#16541#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gameComponents/Item.java">
@@ -1174,15 +1149,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gameComponents/World1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1296">
-          <caret line="137" column="0" lean-forward="false" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+        <state relative-caret-position="357">
+          <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#419#420#0" expanded="true" />
             <element signature="e#452#453#0" expanded="true" />
             <element signature="e#488#489#0" expanded="true" />
-            <element signature="e#535#536#0" expanded="true" />
-            <element signature="e#4703#4704#0" expanded="true" />
+            <element signature="e#537#538#0" expanded="true" />
+            <element signature="e#4660#4661#0" expanded="true" />
+            <element signature="e#4705#4706#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mainGame/MainGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-141">
+          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#main#0;class#MainGame#0" expanded="false" />
+            <element signature="docComment;method#generatePlayer#0;class#MainGame#0" expanded="false" />
+            <element signature="method#generatePlayer#0;class#MainGame#0" expanded="false" />
+            <element signature="method#generateRandomPlayer#0;class#MainGame#0" expanded="false" />
+            <element signature="method#getLineFromUser#0;class#MainGame#0" expanded="false" />
+            <element signature="method#getValueFromUser#0;class#MainGame#0" expanded="false" />
+            <element signature="method#getNextIntFromUser#0;class#MainGame#0" expanded="false" />
+            <element signature="method#getNextDoubleFromUser#0;class#MainGame#0" expanded="false" />
+            <element signature="docComment;method#commandList#0;class#MainGame#0" expanded="false" />
+            <element signature="method#commandList#0;class#MainGame#0" expanded="false" />
+            <element signature="docComment;class#NameOrInfo#0;class#MainGame#0" expanded="false" />
+            <element signature="docComment;method#movePlayer#0;class#MainGame#0" expanded="false" />
+            <element signature="method#movePlayer#0;class#MainGame#0" expanded="false" />
+            <element signature="docComment;method#isValidMove#0;class#MainGame#0" expanded="false" />
+            <element signature="method#isValidMove#0;class#MainGame#0" expanded="false" />
+            <element signature="docComment;method#printTileInfo#0;class#MainGame#0" expanded="false" />
+            <element signature="method#printTileInfo#0;class#MainGame#0" expanded="false" />
+            <element signature="e#16916#16917#0" expanded="true" />
+            <element signature="e#16954#16955#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -19,7 +19,7 @@ public class World1 {
     }
 
     private Map BuildSpawnRoom() {
-        return buildRandomSquareRoom(1);
+        return buildRandomSquareRoom(100);
     }
 
     private Map buildRandomSquareRoom(int n) {
